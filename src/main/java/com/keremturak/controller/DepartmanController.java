@@ -27,10 +27,14 @@ public class DepartmanController {
                 .build();
         departmanService.save(departman);
     }
+<<<<<<< HEAD
     @GetMapping("/delete")
     public void delete(Long id){
         departmanService.delete(id);
     }
+=======
+
+>>>>>>> 306f103 (Note for myself. Spring beginner level..)
     @GetMapping("/findbyyoneticiid")
     public List<Departman> findByyoneticiid(Long id){
         return departmanService.findByYoneticiid(id);
