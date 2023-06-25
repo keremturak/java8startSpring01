@@ -2,6 +2,7 @@ package com.keremturak.controller;
 
 import com.keremturak.repository.entity.Departman;
 import com.keremturak.service.DepartmanService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,14 +28,14 @@ public class DepartmanController {
                 .build();
         departmanService.save(departman);
     }
-<<<<<<< HEAD
+
     @GetMapping("/delete")
     public void delete(Long id){
         departmanService.delete(id);
     }
-=======
 
->>>>>>> 306f103 (Note for myself. Spring beginner level..)
+
+
     @GetMapping("/findbyyoneticiid")
     public List<Departman> findByyoneticiid(Long id){
         return departmanService.findByYoneticiid(id);
@@ -43,4 +44,6 @@ public class DepartmanController {
     public List<Departman> findAllBKonumAdi(String konum){
         return departmanService.findAllByKonumAdi(konum);
     }
+
+
 }
