@@ -12,12 +12,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 
-public class SavePersonelRequestDto {
-    String token;
-    String ad;
-    String adres;
-    String telefon;
-    String acilDurumKisisi;
-    String acilDurumTelefonu;
-    Long memberDate;
+public class GetNameUpperCaseRequestDto {
+    String name;
 }

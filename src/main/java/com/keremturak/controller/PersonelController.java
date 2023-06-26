@@ -2,6 +2,7 @@ package com.keremturak.controller;
 
 import com.keremturak.dto.request.SavePersonelRequestDto;
 import com.keremturak.dto.response.FindAllVwUserResponseDto;
+import com.keremturak.mapper.IPersonelMapper;
 import com.keremturak.repository.entity.Personel;
 import com.keremturak.service.PersonelService;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import static com.keremturak.constants.RestApiList.*;
 
 public class PersonelController {
     PersonelService service;
+
     public PersonelController(PersonelService service) {
         this.service = service;
     }
@@ -51,6 +53,23 @@ public class PersonelController {
                 .build();
         service.save(personel);
         return ResponseEntity.ok(true);
+
+    }
+    @PostMapping(SAVEDTO2)
+    public ResponseEntity<Boolean> savePersonelMapperDto2(@RequestBody SavePersonelRequestDto dto){
+
+        return ResponseEntity.ok(service.saveFromDto(dto));
+    }
+
+    @GetMapping(FINDALLVWUSERMAPPER)
+    public ResponseEntity<List<FindAllVwUserResponseDto>> getAllPersonelMapper(){
+        List<Personel> plist = service.findAll();
+        List<FindAllVwUserResponseDto> result = new ArrayList<>();
+        plist.forEach(x -> {
+            FindAllVwUserResponseDto findAllVwUserResponseDto = IPersonelMapper.INSTANCE.DtofromPersonel(x);
+            result.add(findAllVwUserResponseDto);
+        });
+        return ResponseEntity.ok(result);
 
     }
 

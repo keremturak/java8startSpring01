@@ -14,4 +14,6 @@ public class RestApiList {
     public static final String FINDALL = "/findall";
     public static final String FINDALLVWUSER = "/findallvwuser";
     public static final String SAVEDTO = "/savedto";
+    public static final String SAVEDTO2 = "/savedto2";
+    public static final String FINDALLVWUSERMAPPER = "/findallvwusermapper";
 }
